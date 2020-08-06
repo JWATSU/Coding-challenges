@@ -1,3 +1,5 @@
+package PizzaCrust;
+
 import java.util.Scanner;
 
 public class CrustCalculator
@@ -5,18 +7,13 @@ public class CrustCalculator
     public static void main(String[] args)
     {
         Scanner scanner = new Scanner(System.in);
+        String[] array = scanner.nextLine().split(" ");
 
-        String line = scanner.nextLine();
-        String[] array = line.split(" ");
-        double radius = Float.parseFloat(array[0]);
-        double crust = Float.parseFloat(array[1]);
+        double totalRadius = Double.parseDouble(array[0]);
+        double crustRadius = totalRadius - Double.parseDouble(array[1]);
+        double percentagePizza = Math.pow(crustRadius, 2) * Math.PI / (Math.pow(totalRadius, 2) * Math.PI);
 
-        double radiusPizza = Math.PI * Math.pow(radius, 2);
-        double radiusCrust = Math.PI * Math.pow(crust, 2);
-
-        double percentagePizza = (radiusCrust / radiusPizza) * 100;
-
-        System.out.println(String.format("%.6f", percentagePizza));
+        System.out.println(percentagePizza * 100);
 
         scanner.close();
     }

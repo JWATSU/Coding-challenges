@@ -1,3 +1,5 @@
+package CandleBox;
+
 import java.util.Scanner;
 
 public class CandleCalculator
